@@ -303,15 +303,15 @@ endif()
 # benchmark
 if (BUILD_BENCHMARKS)
     # turn off installing and testing of the benchmark lib
-    set( BENCHMARK_ENABLE_INSTALL  OFF CACHE BOOL "This should be OFF. Enables installing the benchmark lib" ) 
+    set( BENCHMARK_ENABLE_INSTALL  OFF CACHE BOOL "This should be OFF. Enables installing the benchmark lib" )
     set( BENCHMARK_ENABLE_GTEST_TESTS OFF CACHE BOOL "This should be OFF. Enables gtest framework for the benchmark lib" )
     set( BENCHMARK_ENABLE_TESTING OFF CACHE BOOL "This should be OFF. Enables tests for the benchmark lib" )
     add_subdirectory(benchmark)
     # set the cache vars introduced by the benchmark lib as advanced to not
     # clutter the cmake interfaces
-    mark_as_advanced( BENCHMARK_ENABLE_INSTALL 
-                      BENCHMARK_ENABLE_GTEST_TESTS 
-                      BENCHMARK_ENABLE_TESTING 
+    mark_as_advanced( BENCHMARK_ENABLE_INSTALL
+                      BENCHMARK_ENABLE_GTEST_TESTS
+                      BENCHMARK_ENABLE_TESTING
                       BENCHMARK_ENABLE_ASSEMBLY_TESTS
                       BENCHMARK_DOWNLOAD_DEPENDENCIES
                       BENCHMARK_BUILD_32_BITS

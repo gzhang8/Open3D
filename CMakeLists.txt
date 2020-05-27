@@ -2,7 +2,7 @@
 # https://cmake.org/cmake/help/v3.1/
 # https://gitlab.kitware.com/cmake/community/wikis/doc/tutorials/
 
-cmake_minimum_required(VERSION 3.8.0) # 3.8.0 to enable CUDA native support
+cmake_minimum_required(VERSION 3.5.0) # 3.8.0 to enable CUDA native support
 set (CMAKE_CXX_STANDARD 11)
 set (CMAKE_CUDA_STANDARD 11)
 
@@ -12,7 +12,7 @@ add_custom_target(build_all_3rd_party_libs
 
 if (NOT CMAKE_BUILD_TYPE)
   message(STATUS "No CMAKE_BUILD_TYPE specified, default to Debug")
-  set(CMAKE_BUILD_TYPE "Debug")
+  set(CMAKE_BUILD_TYPE "RELWITHDEBINFO")
 endif()
 string(TOUPPER "${CMAKE_BUILD_TYPE}" uppercase_CMAKE_BUILD_TYPE)
 
@@ -70,7 +70,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 option(BUILD_SHARED_LIBS         "Build shared libraries"                   OFF)
 option(WITH_OPENMP               "Use OpenMP multi-threading"               ON)
 option(ENABLE_HEADLESS_RENDERING "Use OSMesa for headless rendering"        OFF)
-option(BUILD_CPP_EXAMPLES        "Build the Open3D example programs"        ON)
+option(BUILD_CPP_EXAMPLES        "Build the Open3D example programs"        OFF)
 option(BUILD_UNIT_TESTS          "Build the Open3D unit tests"              OFF)
 option(BUILD_BENCHMARKS          "Build the micro benchmarks"               OFF)
 option(BUILD_EIGEN3              "Use the Eigen3 that comes with Open3D"    ON)
@@ -79,13 +79,13 @@ option(BUILD_GLEW                "Build glew from source"                   OFF)
 option(BUILD_GLFW                "Build glfw from source"                   OFF)
 option(BUILD_PNG                 "Build png from source"                    OFF)
 option(BUILD_JPEG                "Build jpeg-turbo from source"             ON)
-option(BUILD_PYBIND11            "Build pybind11 from source"               ON)
-option(BUILD_PYTHON_MODULE       "Build the python module"                  ON)
+option(BUILD_PYBIND11            "Build pybind11 from source"               OFF)
+option(BUILD_PYTHON_MODULE       "Build the python module"                  OFF)
 option(BUILD_LIBREALSENSE        "Build support for Intel RealSense camera" OFF)
 option(BUILD_AZURE_KINECT        "Build support for Azure Kinect sensor"    OFF)
 option(BUILD_TINYFILEDIALOGS     "Build tinyfiledialogs from source"        ON)
 option(BUILD_QHULL               "Build qhull from source"                  ON)
-option(ENABLE_JUPYTER            "Enable Jupyter support for Open3D"        ON)
+option(ENABLE_JUPYTER            "Enable Jupyter support for Open3D"        OFF)
 option(STATIC_WINDOWS_RUNTIME    "Use static (MT/MTd) Windows runtime"      OFF)
 option(BUILD_CUDA_MODULE         "Build the CUDA module"                    OFF)
 option(BUILD_TENSORFLOW_OPS      "Build ops for Tensorflow"                 OFF)
